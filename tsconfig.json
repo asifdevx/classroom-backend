@@ -1,34 +1,16 @@
 {
-  "compilerOptions": {
-    /* Language & runtime */
-    "target": "ES2022",
-    "lib": ["ES2022"],
-
-    /* Node ESM */
-    "module": "ES2022",
-    "moduleResolution": "node",
-
-    /* Project structure */
-    "rootDir": "src",
-    "outDir": "dist",
-
-    /* Type safety */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    /* Interop & correctness */
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    /* Build output */
-    "sourceMap": true,
-
-    /* Performance */
-    "skipLibCheck": true,
-
-    /* Environment types */
-    "types": ["node"]
-  },
-  "include": ["src"]
-}
+    "compilerOptions": {
+      "target": "es2017",
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext",
+     "rootDir": "./src",
+    "outDir": "./dist",
+       "typeRoots": ["./src/types", "./node_modules/@types"],
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "skipLibCheck": true
+    },
+"include": ["src/**/*.ts", "src/**/*.d.ts","axios"]
+  }
+  
