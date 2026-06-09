@@ -10,7 +10,7 @@ const timestamps = {
 };
 
 //! Department schema
-export const departmentSchema = pgTable("departments", {
+ const departmentSchema = pgTable("departments", {
   id: serial("id").primaryKey(),
   code: varchar("code", { length: 50 }).notNull().unique(),
   name: varchar("name", { length: 100 }).notNull(),
@@ -19,7 +19,7 @@ export const departmentSchema = pgTable("departments", {
 });
 
 //! Subject schema
-export const subjectSchema = pgTable("subjects", {
+ const subjectSchema = pgTable("subjects", {
   id: serial("id").primaryKey(),
   departmentId: integer("department_id")
     .references(() => departmentSchema.id, { onDelete: "restrict" })
@@ -46,3 +46,8 @@ export type NewDepartment = typeof departmentSchema.$inferInsert;
 
 export type Subject = typeof subjectSchema.$inferSelect;
 export type NewSubject = typeof subjectSchema.$inferInsert;
+
+
+
+export const Departments = departmentSchema;
+export const Subjects = subjectSchema;
