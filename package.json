@@ -13,7 +13,7 @@
     "db:seed": "tsx seed/seed.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jashedul asif",
   "license": "ISC",
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",

@@ -5,7 +5,8 @@ const app = express();
 const PORT = 8000;
 
 import subjectsRouter from "./routers/rou.subjects";
-
+import securityMiddleware from "./security/middleware";
+app.set("trust proxy", 1);
 app.use(
   cors({
     origin: process.env.FRONTEND_URL, 
@@ -13,10 +14,10 @@ app.use(
     credentials: true, 
   }),
 );
-
 // app.all("/api/auth/*splat", toNodeHandler(auth));
-
 app.use(express.json());
+
+app.use(securityMiddleware);
 
 app.use("/api/subjects", subjectsRouter);
 
