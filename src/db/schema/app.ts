@@ -1,13 +1,7 @@
 import { relations } from "drizzle-orm";
-import { integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { timestamps } from "../../utils/timeStemp";
 
-const timestamps = {
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at")
-    .defaultNow()
-    .$onUpdate(() => new Date())
-    .notNull(),
-};
 
 //! Department schema
  const departmentSchema = pgTable("departments", {
