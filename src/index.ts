@@ -3,8 +3,6 @@ import express from "express";
 const app = express();
 const PORT = 8000;
 
-import { toNodeHandler } from "better-auth/node";
-import { auth } from "./utils/auth";
 
 import classesRouter from "./routers/rou.classes";
 import subjectsRouter from "./routers/rou.subjects";
@@ -20,7 +18,7 @@ app.use(
     credentials: true,
   }),
 );
-app.all("/api/auth/*splat", toNodeHandler(auth));
+// app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
 app.use(securityMiddleware);
