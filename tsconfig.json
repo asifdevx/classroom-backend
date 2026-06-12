@@ -11,6 +11,6 @@
       "noImplicitAny": true,
       "skipLibCheck": true
     },
-"include": ["src/**/*.ts", "src/**/*.d.ts","axios", "../frontend/src/utils/toast.ts"]
+"include": ["src/**/*.ts", "src/**/*.d.ts","axios"]
   }
   
