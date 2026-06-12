@@ -1,9 +1,9 @@
 import type { NextFunction, Request, Response } from "express";
 
 import { RateLimitRole } from "../types";
-import { detectBot } from "./botDetector.js";
-import { checkRateLimit, ROLE_CONFIGS } from "./rateLimiter.js";
-import { runShield } from "./shield.js";
+import { detectBot } from "./botDetector";
+import { checkRateLimit, ROLE_CONFIGS } from "./rateLimiter";
+import { runShield } from "./shield";
 
 
 const WINDOW_MS = 60 * 1_000; // 1-minute sliding window
@@ -33,6 +33,7 @@ const securityMiddleware = async (
 
   try {
     const ip = getClientIp(req);
+     console.log({ ip, origin: req.originalUrl, originControler: process.env.FRONTEND_URL ?? "Not Found" });
      
 
     // ── 1. Bot detection ────────────────────────────────────────────────────

@@ -51,7 +51,7 @@ const COMMAND_INJECTION: RegExp[] = [
 // Attackers use these for host-header injection and SSRF.
 
 const SUSPICIOUS_HEADER_NAMES = new Set([
-  "x-forwarded-host",
+  // "x-forwarded-host",
   "x-original-url",
   "x-rewrite-url",
   "x-override-url",
