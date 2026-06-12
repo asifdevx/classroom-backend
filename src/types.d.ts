@@ -1,4 +1,5 @@
-export type RateLimitRole = "admin" | "teacher" | "student" | "guest";
+export type UserRole = "admin" | "teacher" | "student" ;
+export type RateLimitRole = UserRole | "guest";
 
 export interface RateLimitConfig {
   limit: number;
@@ -22,3 +23,13 @@ export interface ShieldResult {
   passed: boolean;
   threats: string[];
 }
+
+
+
+
+
+type Schedule = {
+  day: string;
+  startTime: string;
+  endTime: string;
+};

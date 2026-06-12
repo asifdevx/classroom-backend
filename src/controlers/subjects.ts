@@ -9,15 +9,17 @@ export const getAllSubjects = async (req: Request, res: Response) => {
     const currentPage = Math.max(1, Number(page) || 1);
     const limitPerPage = Math.max(1, Number(limit) || 10);
     const offset = (currentPage - 1) * limitPerPage;
-
+    console.log(process.env.DATABASE_URL);
     const filterConditions: any[] = [];
 
     if (search) {
       const term = String(search);
-      filterConditions.push(or(ilike(Subjects.name, `%${term}%`), ilike(Subjects.description, `%${term}%`)));
+      console.log(term);
+
+      filterConditions.push(or(ilike(Subjects.name, `%${term}%`), ilike(Subjects.code, `%${term}%`)));
     }
 
-    if (department) {
+    if (department && department !== "all") {
       filterConditions.push(ilike(Departments.name, `%${String(department)}%`));
     }
 
@@ -49,7 +51,8 @@ export const getAllSubjects = async (req: Request, res: Response) => {
       .offset(offset)
       .limit(limitPerPage)
       .orderBy(Subjects.createdAt);
-      
+    console.log({ department, search });
+    console.log(subjectsList);
     res.status(200).json({
       data: subjectsList,
       pagination: {
